@@ -1,0 +1,52 @@
+<div class="page">
+  <h1 class="page-title">Welcome</h1>
+  <p class="page-subtitle">Walk-in visitor queue for {{ today | date:'EEEE, dd MMMM yyyy' }}</p>
+
+  <div class="stats" fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="33.33" fxFlex.lt-md="100">
+      <mat-card class="stat">
+        <div class="stat-value">{{ stats.total }}</div>
+        <div class="stat-label">Queue numbers taken today</div>
+      </mat-card>
+    </div>
+    <div fxFlex="33.33" fxFlex.lt-md="100">
+      <mat-card class="stat">
+        <div class="stat-value waiting">{{ stats.waiting }}</div>
+        <div class="stat-label">Waiting for registration</div>
+      </mat-card>
+    </div>
+    <div fxFlex="33.33" fxFlex.lt-md="100">
+      <mat-card class="stat">
+        <div class="stat-value done">{{ stats.registered }}</div>
+        <div class="stat-label">Registered visitors</div>
+      </mat-card>
+    </div>
+  </div>
+  <p class="api-error" *ngIf="apiError">
+    <mat-icon>error_outline</mat-icon> {{ apiError }}
+  </p>
+
+  <div class="menu" fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="33.33" fxFlex.lt-md="100">
+      <button class="menu-card" style="background: slateblue" (click)="changePage('request-queue-number')">
+        <mat-icon>confirmation_number</mat-icon>
+        <span class="menu-title">Print Queue Number</span>
+        <span class="menu-desc">Give a walk-in visitor the next number and print their ticket.</span>
+      </button>
+    </div>
+    <div fxFlex="33.33" fxFlex.lt-md="100">
+      <button class="menu-card" style="background: green" (click)="changePage('input-visitor-details')">
+        <mat-icon>person_add</mat-icon>
+        <span class="menu-title">Input Visitor Details</span>
+        <span class="menu-desc">Register the visitor's biodata, clinic and doctor.</span>
+      </button>
+    </div>
+    <div fxFlex="33.33" fxFlex.lt-md="100">
+      <button class="menu-card" style="background: orange" (click)="changePage('visitor-list')">
+        <mat-icon>list_alt</mat-icon>
+        <span class="menu-title">Visitor List</span>
+        <span class="menu-desc">Search, filter and export registered visitors.</span>
+      </button>
+    </div>
+  </div>
+</div>

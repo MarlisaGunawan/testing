@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="toolbar">
+  <a routerLink="/" class="brand">
+    <mat-icon>local_hospital</mat-icon>
+    <span>{{ hospitalName }}</span>
+    <span class="brand-sub">Customer Queue Management</span>
+  </a>
+  <span class="spacer"></span>
+  <nav class="nav">
+    <a mat-button routerLink="/request-queue-number" routerLinkActive="active">
+      <mat-icon>confirmation_number</mat-icon> <span class="nav-label">Queue Number</span>
+    </a>
+    <a mat-button routerLink="/input-visitor-details" routerLinkActive="active">
+      <mat-icon>person_add</mat-icon> <span class="nav-label">Input Visitor</span>
+    </a>
+    <a mat-button routerLink="/visitor-list" routerLinkActive="active">
+      <mat-icon>list_alt</mat-icon> <span class="nav-label">Visitor List</span>
+    </a>
+  </nav>
+  <span class="clock">{{ now | date:'EEE, dd MMM yyyy HH:mm' }}</span>
+</mat-toolbar>
+<router-outlet></router-outlet>
